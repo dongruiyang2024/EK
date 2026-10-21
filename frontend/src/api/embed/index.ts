@@ -644,7 +644,7 @@ export function buildWidgetSnippet(
 }
 
 /** Default placeholder for the integrator's own token-minting endpoint. */
-export const SECURE_TOKEN_ENDPOINT_PLACEHOLDER = 'https://your-backend.example.com/weknora/embed-token'
+export const SECURE_TOKEN_ENDPOINT_PLACEHOLDER = 'https://your-backend.example.com/ek/embed-token'
 
 /**
  * Secure-mode widget snippet: the page references an endpoint on the

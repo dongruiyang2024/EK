@@ -796,7 +796,7 @@ onMounted(async () => {
 
 .provider-card__badge {
   .provider-card-badge();
-  .provider-card-badge-color(#0052d9);
+  .provider-card-badge-color(#57758e);
 }
 
 // 真实品牌 logo：白底 + 细边，logo 用 mask-image 染成 currentColor（沿用品牌色）。

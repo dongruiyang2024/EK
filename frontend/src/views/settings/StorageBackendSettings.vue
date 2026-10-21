@@ -198,7 +198,7 @@
           <h4 class="setting-drawer__section-title">{{ t('settings.storageBackend.advancedSection') }}</h4>
           <div class="form-item">
             <label class="form-label">{{ t('settings.storageBackend.pathPrefixLabel') }}</label>
-            <t-input v-model="form.config.path_prefix" :disabled="!!editing" placeholder="weknora/" clearable />
+            <t-input v-model="form.config.path_prefix" :disabled="!!editing" placeholder="knowledge/" clearable />
           </div>
           <div v-if="form.provider === 'minio'" class="form-item">
             <div class="vision-toggle">
@@ -431,7 +431,7 @@ onMounted(load)
 
 .backend-card__badge {
   .provider-card-badge();
-  .provider-card-badge-color(#0052d9);
+  .provider-card-badge-color(#57758e);
 }
 
 .backend-card__badge-img {
@@ -445,7 +445,7 @@ onMounted(load)
   .provider-card-badge-color(#c0382b);
 }
 .backend-card--cos .backend-card__badge {
-  .provider-card-badge-color(#0052d9);
+  .provider-card-badge-color(#57758e);
 }
 .backend-card--tos .backend-card__badge {
   .provider-card-badge-color(#0089ff);
@@ -679,7 +679,7 @@ onMounted(load)
 
 .storage-backend-drawer--local .setting-drawer__header-icon { background: rgba(70, 70, 70, 0.1); color: #464646; }
 .storage-backend-drawer--minio .setting-drawer__header-icon { background: rgba(225, 38, 38, 0.12); color: #C0382B; }
-.storage-backend-drawer--cos .setting-drawer__header-icon { background: rgba(0, 82, 217, 0.1); color: #0052D9; }
+.storage-backend-drawer--cos .setting-drawer__header-icon { background: rgba(0, 82, 217, 0.1); color: #57758e; }
 .storage-backend-drawer--tos .setting-drawer__header-icon { background: rgba(0, 137, 255, 0.12); color: #0089FF; }
 .storage-backend-drawer--s3 .setting-drawer__header-icon { background: rgba(255, 153, 0, 0.12); color: #D97706; }
 .storage-backend-drawer--oss .setting-drawer__header-icon { background: rgba(255, 90, 0, 0.12); color: #E55A00; }

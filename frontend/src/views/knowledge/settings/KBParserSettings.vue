@@ -124,7 +124,7 @@ const loading = ref(true)
 
 const allFileTypes = computed(() => {
   const s = new Set<string>()
-  for (const engine of parserEngines.value) {
+  for (const engine of parserEngines.value.filter(e => e.Name !== 'weknoracloud')) {
     for (const ft of engine.FileTypes || []) {
       s.add(ft)
     }
@@ -187,7 +187,7 @@ const fileTypeGroups = computed(() => {
 
 function getEngineOptions(extensions: string[]): EngineOption[] {
   const raw: { name: string; desc: string; fileTypes: string[]; available: boolean; reason: string }[] = []
-  for (const engine of parserEngines.value) {
+  for (const engine of parserEngines.value.filter(e => e.Name !== 'weknoracloud')) {
     const supports = extensions.some(ext => (engine.FileTypes || []).includes(ext))
     if (supports) {
       raw.push({

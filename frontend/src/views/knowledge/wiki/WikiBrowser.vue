@@ -74,7 +74,7 @@
           <div class="legend-items">
             <div class="legend-item clickable" :class="{ disabled: !graphFilterTypes.has('summary') }"
               @click="toggleGraphFilterType('summary')">
-              <span class="legend-dot" style="background: #0052d9"></span>
+              <span class="legend-dot" style="background: #57758e"></span>
               {{ $t('knowledgeEditor.wikiBrowser.filterSummary') }}
             </div>
             <div class="legend-item clickable" :class="{ disabled: !graphFilterTypes.has('entity') }"
@@ -3819,7 +3819,7 @@ const graphSelectedSlug = ref<string | null>(null)
 
 // Color map for node types
 const nodeColorMap: Record<string, string> = {
-  summary: '#0052d9', entity: '#2ba471', concept: '#e37318',
+  summary: '#57758e', entity: '#2ba471', concept: '#e37318',
   synthesis: '#0594fa', comparison: '#d54941', index: '#8c8c8c',
 }
 const graphEdgeColor = '#aeb5c0'
@@ -4098,7 +4098,7 @@ function renderGraph(opts: RenderGraphOpts = {}) {
     m.setAttribute('orient', 'auto')
     const p = document.createElementNS('http://www.w3.org/2000/svg', 'path')
     p.setAttribute('d', id.includes('end') ? 'M0,0 L10,3 L0,6 L2,3 Z' : 'M10,0 L0,3 L10,6 L8,3 Z')
-    p.setAttribute('fill', '#0052d9')
+    p.setAttribute('fill', '#57758e')
     m.appendChild(p)
     defs.appendChild(m)
   }
@@ -4196,7 +4196,7 @@ function renderGraph(opts: RenderGraphOpts = {}) {
       const familiarRing = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
       familiarRing.setAttribute('r', String(r + 7))
       familiarRing.setAttribute('fill', 'none')
-      familiarRing.setAttribute('stroke', '#0052d9')
+      familiarRing.setAttribute('stroke', '#57758e')
       familiarRing.setAttribute('stroke-width', '2')
       familiarRing.setAttribute('pointer-events', 'none')
       familiarRing.style.opacity = '0.9'
@@ -4820,7 +4820,7 @@ function applyHighlight(
       const focusSlug = (hoverSlug && (e.source === hoverSlug || e.target === hoverSlug)) ? hoverSlug : slug
       const hlColor = nodeColorMap[
         nodeEls.find(n => n.node.slug === focusSlug)?.node.type || ''
-      ] || '#0052d9'
+      ] || '#57758e'
 
       e.line.setAttribute('stroke', hlColor)
       setEdgeMarkers(e, '-hl')
@@ -6718,7 +6718,7 @@ span.graph-focus-name {
   display: inline-block;
   flex-shrink: 0;
   box-sizing: border-box;
-  border: 2px solid #0052d9;
+  border: 2px solid #57758e;
   background: transparent;
 }
 

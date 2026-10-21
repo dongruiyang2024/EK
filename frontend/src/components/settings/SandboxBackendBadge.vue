@@ -43,7 +43,7 @@ const badgeStyle = computed((): Record<string, string> => (
   flex-shrink: 0;
   border-radius: 9px;
   background: rgba(0, 82, 217, 0.1);
-  color: #0052d9;
+  color: #57758e;
 }
 
 .sandbox-badge--md {

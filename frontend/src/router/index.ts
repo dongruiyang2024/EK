@@ -43,16 +43,29 @@ function hasPendingOIDCCallback() {
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to, _from, savedPosition) {
+    if (savedPosition) return savedPosition
+    if (to.hash && ['/', '/help'].includes(to.path)) return { el: to.hash, top: 24 }
+    if (['/', '/help', '/login'].includes(to.path)) return { top: 0 }
+  },
   routes: [
     {
       path: "/",
-      redirect: "/platform/knowledge-bases",
+      name: "landing",
+      component: () => import("../views/public/Home.vue"),
+      meta: { requiresAuth: false, requiresInit: false },
     },
     {
       path: "/login",
       name: "login",
       component: () => import("../views/auth/Login.vue"),
       meta: { requiresAuth: false, requiresInit: false }
+    },
+    {
+      path: "/help",
+      name: "help",
+      component: () => import("../views/public/Help.vue"),
+      meta: { requiresAuth: false, requiresInit: false },
     },
     // Embed chat is a separate entry (embed.html + embed-main.ts), not this SPA.
     {
