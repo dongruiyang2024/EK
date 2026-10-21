@@ -6,9 +6,7 @@
     </header>
     <main>
       <aside>
-        <span class="eyebrow">EK / GUIDE</span>
         <h1>使用指南</h1>
-        <p>从第一份资料，<br />到有依据的回答。</p>
         <nav aria-label="指南目录">
           <a
             v-for="section in sections"
@@ -21,19 +19,12 @@
       </aside>
       <div class="help-content">
         <section id="start">
-          <span class="eyebrow">GETTING STARTED</span>
-          <h2>开始你的知识工作空间</h2>
-          <p>
-            登录后，先由空间管理员配置模型，再创建知识库并导入资料。文档完成解析和索引后，即可在对话中选择知识库提问。点击回答中的引用，核对原文与上下文。
-          </p>
+          <h2>快速开始</h2>
           <ol>
             <li>设置 → 模型管理：添加对话模型和向量模型，测试连接。</li>
             <li>知识库 → 新建：选择模型，设置名称与文档解析方式。</li>
             <li>上传资料：等待状态变为就绪，再开始检索或问答。</li>
           </ol>
-          <div class="help-note">
-            模型服务需要你自己的服务地址和凭据。文档处理及回答效果取决于模型配置、资料质量和索引状态。
-          </div>
         </section>
         <section v-for="section in sections" :id="section.id" :key="section.id">
           <h2>{{ section.title }}</h2>
@@ -43,7 +34,7 @@
         </section>
       </div>
     </main>
-    <footer>EK · 让知识，成为日常的力量。</footer>
+    <footer>EK</footer>
   </div>
 </template>
 <script setup lang="ts">
@@ -152,20 +143,10 @@ aside {
   top: 35px;
   align-self: start;
 }
-.eyebrow {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--td-text-color-secondary);
-}
 h1 {
   font-size: 32px;
   font-weight: 500;
   margin: 16px 0;
-}
-aside p {
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--td-text-color-secondary);
 }
 nav {
   display: grid;
@@ -201,15 +182,6 @@ li {
 }
 ol {
   padding-left: 22px;
-}
-.help-note {
-  font-size: 12px;
-  line-height: 1.9;
-  padding: 16px 20px;
-  border-radius: 8px;
-  background: var(--td-brand-color-light);
-  color: var(--td-text-color-secondary);
-  margin-top: 25px;
 }
 footer {
   max-width: 1100px;

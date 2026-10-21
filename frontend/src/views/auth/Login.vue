@@ -30,7 +30,6 @@
       </div>
     </header>
     <section class="login-story">
-      <span class="eyebrow">YOUR KNOWLEDGE, CONNECTED</span>
       <h1>
         {{
           currentLanguage.startsWith("zh")
@@ -42,40 +41,6 @@
             : "Room for thought."
         }}</em>
       </h1>
-      <p>
-        {{
-          currentLanguage.startsWith("zh")
-            ? "从一份文档开始，将分散的资料沉淀为自己的知识。每一次提问，都离答案更近一步。"
-            : "Bring your documents together. Find what matters, and build on what you know."
-        }}
-      </p>
-      <div class="story-note">
-        <span class="note-index">01 / 03</span>
-        <div>
-          <strong>{{
-            currentLanguage.startsWith("zh")
-              ? "收集 · 理解 · 连接"
-              : "Collect · Understand · Connect"
-          }}</strong
-          ><span>{{
-            currentLanguage.startsWith("zh")
-              ? "你的资料，你的知识工作空间"
-              : "Your documents. Your knowledge workspace."
-          }}</span>
-        </div>
-        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-          <path
-            d="M8 12h13l3 4 3-4h13v26H27l-3 3-3-3H8zM24 16v25"
-            stroke="currentColor"
-            stroke-width="1.5"
-          />
-          <path
-            d="M13 22h6m-6 6h6m10-6h6m-6 6h6"
-            stroke="currentColor"
-            stroke-width="1.5"
-          />
-        </svg>
-      </div>
     </section>
     <!-- Right Form Section -->
     <div class="form-section">
@@ -106,10 +71,6 @@
           </div>
           <div class="form-header">
             <h2 class="form-title">{{ $t("auth.login") }}</h2>
-            <p class="form-welcome">{{ $t("auth.subtitle") }}</p>
-            <p v-if="registrationEnabled" class="form-hint">
-              {{ $t("auth.loginHint") }}
-            </p>
           </div>
 
           <div class="form-content">
@@ -190,25 +151,6 @@
               </t-button>
             </t-form>
 
-            <!-- Features list -->
-            <div class="login-features">
-              <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span class="feature-text">{{
-                  $t("platform.multimodalParsing")
-                }}</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span class="feature-text">{{
-                  $t("platform.hybridSearchEngine")
-                }}</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span class="feature-text">{{ $t("platform.ragQandA") }}</span>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -318,27 +260,6 @@
               </a>
             </div>
 
-            <!-- Features list for register -->
-            <div class="login-features">
-              <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span class="feature-text">{{
-                  $t("platform.independentTenant")
-                }}</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span class="feature-text">{{
-                  $t("platform.fullApiAccess")
-                }}</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span class="feature-text">{{
-                  $t("platform.knowledgeBaseManagement")
-                }}</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -902,11 +823,6 @@ a {
   max-width: 500px;
   margin: auto;
 }
-.eyebrow {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--td-text-color-secondary);
-}
 .login-story h1 {
   font-size: clamp(36px, 4vw, 56px);
   line-height: 1.4;
@@ -917,41 +833,6 @@ a {
 .login-story h1 em {
   font-style: normal;
   color: var(--td-brand-color);
-}
-.login-story > p {
-  font-size: 14px;
-  line-height: 2.1;
-  color: var(--td-text-color-secondary);
-  max-width: 375px;
-}
-.story-note {
-  margin-top: 64px;
-  border-top: 1px solid var(--td-component-stroke);
-  padding-top: 25px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  color: var(--td-brand-color);
-}
-.note-index {
-  font-size: 10px;
-  letter-spacing: 1px;
-}
-.story-note strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 500;
-}
-.story-note div > span {
-  display: block;
-  font-size: 11px;
-  color: var(--td-text-color-secondary);
-  margin-top: 8px;
-}
-.story-note svg {
-  width: 44px;
-  height: 44px;
-  margin-left: auto;
 }
 .form-section {
   width: 100%;
@@ -973,16 +854,11 @@ a {
   font-size: 25px;
   margin: 0 0 12px;
 }
-.form-welcome,
-.form-subtitle,
-.form-hint {
+.form-subtitle {
   font-size: 13px;
   line-height: 1.7;
   color: var(--td-text-color-secondary);
   margin: 7px 0;
-}
-.form-hint {
-  font-size: 12px;
 }
 .form-content :deep(.t-input) {
   border-radius: 7px;
@@ -1022,24 +898,6 @@ a {
 .oidc-button {
   border-radius: 7px;
 }
-.login-features {
-  border-top: 1px solid var(--td-component-stroke);
-  padding-top: 22px;
-  margin-top: 28px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px 15px;
-}
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 10px;
-  color: var(--td-text-color-secondary);
-}
-.feature-icon {
-  color: var(--td-brand-color);
-}
 .invite-banner {
   padding: 14px;
   background: var(--td-brand-color-light);
@@ -1069,9 +927,6 @@ a {
   .login-story h1 {
     font-size: 38px;
   }
-  .story-note {
-    gap: 12px;
-  }
 }
 @media (max-width: 700px) {
   .login-page {
@@ -1096,13 +951,7 @@ a {
     font-size: 30px;
     margin: 12px 0 8px;
   }
-  .login-story > p,
-  .story-note {
-    display: none;
-  }
-  .eyebrow {
-    font-size: 8px;
-  }
+
   .form-panel {
     padding: 28px;
   }
