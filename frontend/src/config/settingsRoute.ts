@@ -16,6 +16,7 @@ export function integrationTabFromSection(section: string): IntegrationTab {
   if (INTEGRATION_TABS.includes(raw as IntegrationTab)) {
     return raw as IntegrationTab
   }
+  if (['cli', 'chrome', 'claw'].includes(raw)) return 'api'
   return 'im'
 }
 
@@ -35,6 +36,8 @@ function isBareIntegrationTab(section: string): section is IntegrationTab {
  * `api`, and bare tab names remain aliases.
  */
 export function normalizeSettingsSection(section: string, tab?: string | null): string {
+  if (section === 'weknoracloud') return 'models'
+  if (['integration-cli', 'integration-chrome', 'integration-claw', 'cli', 'chrome', 'claw'].includes(section)) return 'integration-api'
   if (section === 'integrations') {
     return integrationSectionKey(integrationTabFromSection(tab || 'im'))
   }

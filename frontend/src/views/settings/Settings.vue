@@ -85,10 +85,6 @@
           <OllamaSettings />
         </div>
 
-        <!-- WeKnora Cloud -->
-        <div v-if="currentSection === 'weknoracloud'" class="section">
-          <WeKnoraCloudSettings />
-        </div>
 
         <!-- 模型配置 -->
         <div v-if="currentSection === 'models'" class="section">
@@ -219,7 +215,6 @@ import VectorStoreSettings from './VectorStoreSettings.vue'
 import ParserEngineSettings from './ParserEngineSettings.vue'
 import StorageBackendSettings from './StorageBackendSettings.vue'
 import SandboxSettings from './SandboxSettings.vue'
-import WeKnoraCloudSettings from './WeKnoraCloudSettings.vue'
 import TenantMembers from './TenantMembers.vue'
 import SystemSettings from '@/views/system/SystemSettings.vue'
 import RuntimeQueues from '@/views/system/RuntimeQueues.vue'
@@ -354,7 +349,6 @@ const navItems = computed(() => {
   const all: NavItem[] = [
     { key: 'general', icon: 'setting', label: t('general.title') },
     { key: 'ollama', icon: 'server', label: 'Ollama' },
-    { key: 'weknoracloud', icon: '', label: 'WeKnora Cloud' },
     { key: 'models', icon: 'control-platform', label: t('settings.modelManagement') },
     { key: 'websearch', icon: 'search', label: t('settings.webSearchConfig') },
     { key: 'chathistory', icon: 'chat', label: t('chatHistorySettings.title') },
@@ -406,7 +400,7 @@ const navGroups = computed<NavGroup[]>(() => {
     {
       key: 'models_runtime',
       label: t('settings.navGroups.modelsRuntime'),
-      items: pickItems(['models', 'ollama', 'weknoracloud']),
+      items: pickItems(['models', 'ollama']),
     },
     {
       key: 'integrations',

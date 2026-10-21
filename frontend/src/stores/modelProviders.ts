@@ -50,7 +50,8 @@ export const useModelProvidersStore = defineStore('modelProviders', () => {
     const request = (async () => {
       loadingByType.value = { ...loadingByType.value, [key]: true }
       try {
-        const { providers, cacheable } = await loadProvidersForType(listModelProviders, key)
+        const { providers: catalog, cacheable } = await loadProvidersForType(listModelProviders, key)
+        const providers = catalog.filter(provider => provider.value !== 'weknoracloud')
         if (!cacheable || requestGeneration !== generation || requestTokens.get(key) !== token) return providers
         byType.value = { ...byType.value, [key]: providers }
         // The freshest list is merged first so its metadata wins over older types.

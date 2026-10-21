@@ -860,7 +860,7 @@ onMounted(async () => {
 
 .store-card__badge {
   .provider-card-badge();
-  .provider-card-badge-color(#0052d9);
+  .provider-card-badge-color(#57758e);
 }
 
 // 真实品牌 logo 的渲染：保留每个 engine 类的 color 作为品牌色，
@@ -886,7 +886,7 @@ onMounted(async () => {
   .provider-card-badge-color(#d97706);
 }
 .store-card--postgres .store-card__badge {
-  .provider-card-badge-color(#0052d9);
+  .provider-card-badge-color(#57758e);
 }
 .store-card--opensearch .store-card__badge {
   .provider-card-badge-color(#6235bb);
@@ -895,7 +895,7 @@ onMounted(async () => {
   .provider-card-badge-color(#6235bb);
 }
 .store-card--tencent_vectordb .store-card__badge {
-  .provider-card-badge-color(#0052d9);
+  .provider-card-badge-color(#57758e);
 }
 .store-card--doris .store-card__badge {
   .provider-card-badge-color(#e55a00);
@@ -1194,7 +1194,7 @@ onMounted(async () => {
 }
 .vectorstore-drawer--postgres .setting-drawer__header-icon {
   background: rgba(0, 82, 217, 0.1);
-  color: #0052D9;
+  color: #57758e;
 }
 .vectorstore-drawer--opensearch .setting-drawer__header-icon {
   background: rgba(98, 53, 187, 0.12);
@@ -1206,7 +1206,7 @@ onMounted(async () => {
 }
 .vectorstore-drawer--tencent_vectordb .setting-drawer__header-icon {
   background: rgba(0, 82, 217, 0.1);
-  color: #0052D9;
+  color: #57758e;
 }
 .vectorstore-drawer--doris .setting-drawer__header-icon {
   background: rgba(255, 90, 0, 0.12);

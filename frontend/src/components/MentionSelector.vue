@@ -796,7 +796,7 @@ const scrollToRow = (index: number) => {
 }
 
 .mention-row.active .mention-row__icon.faq-icon {
-  color: var(--weknora-faq-color, #0052d9);
+  color: var(--weknora-faq-color, #57758e);
 }
 
 .mention-row__name {
@@ -950,7 +950,7 @@ const scrollToRow = (index: number) => {
 .mention-detail-content .detail-type-badge.faq {
   border-color: rgba(0, 82, 217, 0.16);
   background: rgba(0, 82, 217, 0.08);
-  color: var(--weknora-faq-color, #0052d9);
+  color: var(--weknora-faq-color, #57758e);
 }
 .mention-detail-content .detail-desc {
   margin: 0 0 8px;

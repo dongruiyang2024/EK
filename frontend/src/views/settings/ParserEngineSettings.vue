@@ -433,11 +433,7 @@ const CONFIGURABLE_ENGINES = new Set(['mineru', 'mineru_cloud', 'paddleocr_vl', 
 
 /** 各解析引擎的项目/官方文档地址 */
 const ENGINE_DOC_LINKS: Record<string, string> = {
-  weknoracloud: 'https://developers.weixin.qq.com/doc/aispeech/knowledge/atomic_capability/atomic_interface.html',
-  markitdown: 'https://github.com/microsoft/markitdown',
-  mineru: 'https://github.com/opendatalab/MinerU',
   mineru_cloud: 'https://mineru.net/apiManage/docs',
-  paddleocr_vl: 'https://github.com/PaddlePaddle/PaddleOCR',
   paddleocr_vl_cloud: 'https://aistudio.baidu.com/paddleocr',
 }
 
@@ -567,7 +563,7 @@ function openDrawer(engine: ParserEngineInfo) {
 async function loadEngines() {
   try {
     const res = await getParserEngines()
-    engines.value = res?.data ?? []
+    engines.value = (res?.data ?? []).filter(e => e.Name !== 'weknoracloud')
     docreaderAddrEnv.value = res?.docreader_addr ?? ''
     const transport = (res?.docreader_transport ?? 'grpc').toLowerCase()
     docreaderTransport.value = transport === 'http' ? 'http' : 'grpc'
@@ -663,7 +659,7 @@ async function onCheck() {
   saveMessage.value = ''
   try {
     const res = await checkParserEngines(buildConfigPayload())
-    engines.value = res?.data ?? []
+    engines.value = (res?.data ?? []).filter(e => e.Name !== 'weknoracloud')
     if (res?.connected !== undefined) {
       connected.value = res.connected
     }
@@ -817,13 +813,13 @@ onMounted(loadAll)
 
 .engine-card__badge {
   .provider-card-badge();
-  .provider-card-badge-color(#0052d9);
+  .provider-card-badge-color(#57758e);
 }
 
 // 解析引擎徽章配色 —— 内置/官方系绿，外部工具按性质各取一色。
 .engine-card--builtin .engine-card__badge,
 .engine-card--weknoracloud .engine-card__badge {
-  .provider-card-badge-color(#07c05f);
+  .provider-card-badge-color(#57758e);
 }
 .engine-card--simple .engine-card__badge {
   .provider-card-badge-color(#464646);
@@ -1148,7 +1144,7 @@ onMounted(loadAll)
 .parser-engine-drawer--builtin .setting-drawer__header-icon,
 .parser-engine-drawer--weknoracloud .setting-drawer__header-icon {
   background: color-mix(in srgb, var(--td-brand-color) 12%, transparent);
-  color: #07C05F;
+  color: #57758e;
 }
 .parser-engine-drawer--simple .setting-drawer__header-icon {
   background: rgba(70, 70, 70, 0.1);

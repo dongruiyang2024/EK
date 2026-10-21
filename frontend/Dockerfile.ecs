@@ -1,0 +1,8 @@
+# Build the matching v0.8.3 frontend locally with npm ci && npm run build.
+# Reuse the verified production runtime so only application assets change.
+FROM wechatopenai/weknora-ui@sha256:94f7992e963b1e2e3b8dc429091f1204fde9c3cd985175b16f40b4142f915fe5
+ARG EK_REVISION=unknown
+LABEL org.opencontainers.image.title="EK Knowledge Workspace" \
+      org.opencontainers.image.revision="${EK_REVISION}"
+RUN rm -rf /usr/share/nginx/html/*
+COPY dist/ /usr/share/nginx/html/
